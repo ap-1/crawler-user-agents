@@ -37,6 +37,7 @@ jobs:
     needs: update
     if: ${{ !cancelled() && (github.event_name == 'push' || (needs.update.result == 'success' && needs.update.outputs.tag != '')) }}
     runs-on: ubuntu-latest
+    environment: release
     permissions:
       contents: read
       id-token: write
